@@ -521,6 +521,7 @@ RegisterNetEvent('apartments:client:EnterApartment', function()
     QBCore.Functions.TriggerCallback('apartments:GetOwnedApartment', function(result)
         if result ~= nil then
             EnterApartment(ClosestHouse, result.name)
+            TriggerEvent('wais:addmissionxp:enterapartment', 1) -- Added by Pamela for battlepass
         end
     end)
 end)
@@ -546,18 +547,21 @@ end)
 
 RegisterNetEvent('apartments:client:LeaveApartment', function()
     LeaveApartment(ClosestHouse)
+    TriggerEvent('wais:addmissionxp:leaveapartment', 1) -- Added by Pamela for battlepass
 end)
 
 RegisterNetEvent('apartments:client:OpenStash', function()
     if CurrentApartment ~= nil then
         TriggerServerEvent("inventory:server:OpenInventory", "stash", CurrentApartment)
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "StashOpen", 0.4)
+        TriggerEvent('wais:addmissionxp:openstash', 1) -- Added by Pamela for battlepass
         TriggerEvent("inventory:client:SetCurrentStash", CurrentApartment)
     end
 end)
 
 RegisterNetEvent('apartments:client:ChangeOutfit', function()
     TriggerServerEvent("InteractSound_SV:PlayOnSource", "Clothes1", 0.4)
+    TriggerEvent('wais:addmissionxp:changeoutfit', 1) -- Added by Pamela for battlepass
     TriggerEvent('qb-clothing:client:openOutfitMenu')
 end)
 
