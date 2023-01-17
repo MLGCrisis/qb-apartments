@@ -485,7 +485,7 @@ RegisterNetEvent('apartments:client:SetHomeBlip', function(home)
 
             Apartments.Locations[name].blip = AddBlipForCoord(Apartments.Locations[name].coords.enter.x, Apartments.Locations[name].coords.enter.y, Apartments.Locations[name].coords.enter.z)
             if (name == home) then
-                SetBlipSprite(Apartments.Locations[name].blip, 475)
+                SetBlipSprite(Apartments.Locations[name].blip, 534)
             else
                 SetBlipSprite(Apartments.Locations[name].blip, 476)
             end
